@@ -1,4 +1,4 @@
-package MVC;
+package view;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ public class view {
         System.out.println("======================================================");
         System.out.println("Чтобы выполнить операцию введите номер:");
         System.out.println("   1 - ввести выражение для рассчета");
-        System.out.println("   9 - закончить");
+        System.out.println("   2 - закончить");
         System.out.print(": ");
         res = sc.nextInt();
         sc.nextLine();
@@ -21,6 +21,10 @@ public class view {
         String res;
         System.out.print("Введите выражение : ");
         res = sc.nextLine();
-        return res;
+        return res.trim();
+    }
+
+    public void ShowString(String res) {
+        System.out.printf("Результат: %s\n", res);
     }
 }

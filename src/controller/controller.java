@@ -1,17 +1,22 @@
-package MVC;
+package controller;
+
+import model.model;
+import view.view;
 
 public class controller {
     view mainView = new view();
     model mainModel = new model();
+
     public void Start() {
 
 
         while (true) {
             switch (mainView.getMainMenuChoice()) {
                 case 1 -> {
-                    mainModel.expressionSolution(mainView.getUserExpression());
+                    String res = mainModel.expressionSolution(mainView.getUserExpression());
+                    mainView.ShowString(res);
                 }
-                case 9 -> {
+                case 2 -> {
                     return;
                 }
                 default -> {
