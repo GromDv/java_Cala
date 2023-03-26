@@ -1,18 +1,24 @@
 package view;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class view {
-    private Scanner sc = new Scanner(System.in);
+    private Scanner sc;
 
-    public int getMainMenuChoice() {
-        int res = 0;
-        System.out.println("======================================================");
-        System.out.println("Чтобы выполнить операцию введите номер:");
-        System.out.println("   1 - ввести выражение для рассчета");
-        System.out.println("   2 - закончить");
-        System.out.print(": ");
-        res = sc.nextInt();
+    public view(Scanner scanner) {
+        this.sc = scanner;
+    }
+
+    public int getMainMenuChoice(mMenu nm) {
+        System.out.print(nm);
+        int res;
+        try {
+            res = sc.nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Введено что-то не то, попробуйте ещё раз!");
+            res = -1;
+        }
         sc.nextLine();
         return res;
     }
